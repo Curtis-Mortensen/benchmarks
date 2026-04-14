@@ -20,12 +20,12 @@ jobs:
 
       - name: Run promptfoo evaluation
         uses: promptfoo/promptfoo-action@v1
-        with:
+        env:
           PROMPTFOO_API_KEY: ${{ secrets.PROMPTFOO_API_KEY }}
+        with:
           # Required: Pass secrets for authentication
           github-token: ${{ secrets.GITHUB_TOKEN }}
           openai-api-key: ${{ secrets.HUGGINGFACE_API_KEY }}
           
           # Tell the action where to look
           config: 'promptfooconfig.yaml'
-          prompts: '*.csv'
