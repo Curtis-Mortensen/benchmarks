@@ -25,7 +25,7 @@ jobs:
         with:
           # Required: Pass secrets for authentication
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          openai-api-key: ${{ secrets.HUGGINGFACE_API_KEY }}
+          huggingface-api-key: ${{ secrets.HF_TOKEN }}
           
           # Tell the action where to look
           config: 'promptfooconfig.yaml'
