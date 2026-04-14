@@ -145,3 +145,15 @@ module.exports = (output, context) => {
     reason: `Found ${matchCount}/${expected.length} items (score ${(score * 100).toFixed(1)}%).${missingStr}${orderReason}`,
   };
 };
+
+/** ChatGPT thinks these things are broken
+* Fixed actual bugs:
+* Crash bug
+* output.toLowerCase() → now safe
+* Normalization mismatch
+* token + fuzzy now use the same normalized output
+* Broken / handling
+* "Summer Magic / Edgar" now works correctly
+* Order check bug
+* was using first token only → now uses full normalized string
+*/
