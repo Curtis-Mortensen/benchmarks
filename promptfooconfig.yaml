@@ -3,7 +3,7 @@ description: "Gemma 4 Evaluation via Hugging Face"
 # Since you don't want a system prompt, we use a simple template.
 # {{body}} will be replaced by the content of your test cases.
 prompts:
-  - "{{body}}"
+  - "{{question}}"
 
 providers:
   - id: huggingface:chat:google/gemma-4-31B-it:novita
