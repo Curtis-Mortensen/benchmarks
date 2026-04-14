@@ -1,0 +1,15 @@
+description: "Gemma 4 Evaluation via Hugging Face"
+
+# Since you don't want a system prompt, we use a simple template.
+# {{body}} will be replaced by the content of your test cases.
+prompts:
+  - "{{body}}"
+
+providers:
+  - id: openai:chat:google/gemma-4-31B-it:novita
+    config:
+      baseUrl: https://router.huggingface.co/v1
+      apiKeyEnvar: HUGGINGFACE_API_KEY
+
+# Point to your converted spreadsheet
+tests: file://tests.csv
