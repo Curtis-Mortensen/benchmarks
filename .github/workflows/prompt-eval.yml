@@ -1,0 +1,30 @@
+name: 'LLM Prompt Evaluation'
+
+on:
+  pull_request:
+    paths:
+      - 'prompts/**'
+      - 'promptfooconfig.yaml'
+  workflow_dispatch: # Allows you to trigger it manually from the Actions tab
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write # Required for the action to post a comment on your PR
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Run promptfoo evaluation
+        uses: promptfoo/promptfoo-action@v1
+        with:
+          # Required: Pass secrets for authentication
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          openai-api-key: ${{ secrets.HUGGINGFACE_API_KEY }}
+          
+          # Tell the action where to look
+          config: 'promptfooconfig.yaml'
+          prompts: 'prompts/**/*.txt'
