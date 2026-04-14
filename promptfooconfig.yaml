@@ -7,9 +7,6 @@ prompts:
 
 providers:
   - id: huggingface:chat:google/gemma-4-31B-it:novita
-    config:
-      baseUrl: https://router.huggingface.co/v1
-      apiKeyEnvar: HUGGINGFACE_API_KEY
 
 # Point to your converted spreadsheet
 tests: file://tests.csv
